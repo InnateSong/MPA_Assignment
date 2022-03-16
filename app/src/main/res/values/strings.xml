@@ -1,0 +1,71 @@
+<resources>
+
+    <string name="navigation_drawer_open">Open Navigation drawer</string>
+    <string name="navigation_drawer_close">Close Navigation drawer</string>
+    <string name="app_name">MPA_assignment</string>
+    <string name="handy_dandy_diet_app">Handy dandy diet app!</string>
+    <string name="sign_in">Sign in</string>
+    <string name="email_here">Email here!</string>
+    <string name="password_here">Password here!</string>
+    <string name="title_activity_sign_in">signIn</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label">First Fragment</string>
+    <string name="second_fragment_label">Second Fragment</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+
+    <string name="hello_first_fragment">Hello first fragment</string>
+    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+    <string name="log_in">Log in</string>
+    <string name="register">Register</string>
+    <string name="title_activity_login">LoginActivity</string>
+    <string name="prompt_email">Email</string>
+    <string name="prompt_password">Password</string>
+    <string name="action_sign_in">Sign in or register</string>
+    <string name="action_sign_in_short">Sign in</string>
+    <string name="welcome">"Welcome !"</string>
+    <string name="invalid_username">Not a valid username</string>
+    <string name="invalid_password">Password must be >5 characters</string>
+    <string name="login_failed">"Login failed"</string>
+    <string name="hello">Hello!</string>
+    <string name="please_select_the_most_appropiate_option_that_fits_your_description">Please select the most appropiate option that fits your description</string>
+    <string name="age_range">Age range:</string>
+    <string name="_10_18">10 - 18</string>
+    <string name="_19_25">19 - 25</string>
+    <string name="_26_35">26 - 35</string>
+    <string name="_35">35 +</string>
+    <string name="occupancy">Occupancy:</string>
+    <string name="student">Student</string>
+    <string name="health_industry">Health Industry</string>
+    <string name="athlete">Athlete</string>
+    <string name="other">Other</string>
+    <string name="daily_device_usage">Daily device usage:</string>
+    <string name="not_often_0_1hr">Not often ( 0 - 1hr)</string>
+    <string name="moderate_1_3hrs">Moderate ( 1 - 3hrs)</string>
+    <string name="often_3_6hrs">Often ( 3 - 6hrs)</string>
+    <string name="all_the_time">All the time</string>
+    <string name="button">Button</string>
+    <string name="please_select_the_most_appropriate_option_that_fits_your_description">please_select_the_most_appropriate_option_that_fits_your_description</string>
+    <string name="please_select_the_most_appropriate_option_that_fits_your_descriptions">please select the most appropriate option that fits your description</string>
+    <string name="enter_your_details_here">Enter your details here:</string>
+    <string name="email">Email:</string>
+    <string name="email_address">Email address</string>
+    <string name="password">Password:</string>
+    <string name="Cpassword_here">Password here</string>
+    <string name="confirm_password">Confirm password:</string>
+    <string name="passsword_here">Passsword here</string>
+    <string name="confirm_registration">Confirm registration</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <!-- ARRAY FOR FILLING IN THE DROP DOWN MENU -->
+    <string-array name="dropDownArray">
+        <item>Home</item>
+        <item>Advanced View</item>
+        <item>Profile</item>
+        <item>Settings</item>
+        <item>Colour</item>
+        <item>Text size</item>
+    </string-array>
+
+</resources>

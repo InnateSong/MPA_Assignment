@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/home"
+            android:icon="@drawable/icon_home"
+            android:title="Home" />
+        <item
+            android:id="@+id/profile"
+            android:icon="@drawable/icon_profile"
+            android:title="Profile" />
+
+        <item
+            android:id="@+id/advancedView"
+            android:icon="@drawable/icon_profile"
+            android:title="Advanced View" />
+
+        <item
+            android:id="@+id/settings"
+            android:icon="@drawable/icon_settings"
+            android:title="Settings" />
+
+        <item
+            android:id="@+id/SignOut"
+            android:icon="@drawable/icon_logout"
+            android:title="Sign out" />
+
+    </group>
+
+    <item android:title="Support">
+        <menu>
+            <item
+                android:id="@+id/colorChange"
+                android:icon="@drawable/icon_inverted"
+                android:title="Color change" />
+
+            <item
+                android:id="@+id/fontChange"
+                android:icon="@drawable/icon_text"
+                android:title="Font size" />
+        </menu>
+    </item>
+
+</menu>

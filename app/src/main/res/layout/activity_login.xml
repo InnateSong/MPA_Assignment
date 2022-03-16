@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/LoginMainLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Login"
+    tools:layout_editor_absoluteX="0dp"
+    tools:layout_editor_absoluteY="-24dp">
+
+
+    <TextView
+        android:id="@+id/Login_Title"
+        android:layout_width="335dp"
+        android:layout_height="91dp"
+        android:layout_marginTop="136dp"
+        android:text="Hello, Enter your logins here:"
+        android:textAlignment="textStart"
+        android:textSize="34sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/LoginEmailAddress"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_margin="32dp"
+        android:layout_marginTop="32dp"
+        android:background="@drawable/custom_input"
+        android:drawableStart="@drawable/custom_email_icon"
+        android:drawablePadding="12dp"
+        android:ems="10"
+        android:hint="Email address"
+        android:inputType="textEmailAddress"
+        android:paddingStart="12dp"
+        android:paddingEnd="12dp"
+        android:textColorHint="#757575"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Login_Title" />
+
+    <EditText
+        android:id="@+id/LoginPassword"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_margin="32dp"
+        android:layout_marginTop="32dp"
+        android:background="@drawable/custom_input"
+        android:drawableStart="@drawable/custom_lock_icon"
+        android:drawablePadding="12dp"
+        android:ems="10"
+        android:hint="Password"
+        android:inputType="textPassword"
+        android:paddingStart="12dp"
+        android:paddingEnd="12dp"
+        android:textColorHint="#757575"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/LoginEmailAddress" />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_margin="32dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="32dp"
+        android:onClick="LoginSubmitButton"
+        android:text="Sign In"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/LoginPassword" />
+
+    <TextView
+        android:id="@+id/LoginForgotten"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="Forgot your password?"
+        android:textColor="@color/purple_500"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.141"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button" />
+
+    <TextView
+        android:id="@+id/loginForgotten"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="New? Register here"
+        android:textColor="@color/purple_500"
+        android:textStyle="bold"
+        android:onClick="LoginRegisterButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.868"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
