@@ -57,6 +57,7 @@
     <string name="confirm_registration">Confirm registration</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="select_the_options_that_best_describe_you">Select the options that best describe you:</string>
 
     <!-- ARRAY FOR FILLING IN THE DROP DOWN MENU -->
     <string-array name="dropDownArray">

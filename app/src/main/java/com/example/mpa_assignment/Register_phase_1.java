@@ -34,7 +34,7 @@ public class Register_phase_1 extends AppCompatActivity {
 
     }
 
-    public void Registration(View view){
+    public void RegisterSubmitButton(View view){
 
         // AGE RANGE Values
         ageRange = getRange();
@@ -47,12 +47,12 @@ public class Register_phase_1 extends AppCompatActivity {
 
         // EMAIL
         checkValidEmail();
-        EditText editEmail = findViewById(R.id.emailAddress);
+        EditText editEmail = findViewById(R.id.RegisterEmailAddress);
         emailAd = editEmail.getText().toString();
 
         // PASSWORD + CONFIRM PASSWORD
         checkValidPassword();
-        EditText passEdit = findViewById(R.id.password);
+        EditText passEdit = findViewById(R.id.RegisterPassword);
         pass = passEdit.getText().toString().trim();
 
         // Connect to the DB and populate it
@@ -65,13 +65,17 @@ public class Register_phase_1 extends AppCompatActivity {
 
     }
 
+    public void RegisterBack(View view){
+        Intent intent = new Intent(this, Login.class);
+        startActivity(intent);
+    }
+
     public String getRange(){
         radioGroup = (RadioGroup) findViewById(R.id.ageRange);
         // get selected radio button from radioGroup
         selectedId = radioGroup.getCheckedRadioButtonId();
         // find the radiobutton by returned id
         radioButton = (RadioButton) findViewById(selectedId);
-
         return radioButton.getText().toString();
     }
 
@@ -90,7 +94,7 @@ public class Register_phase_1 extends AppCompatActivity {
     }
 
     public void checkValidEmail(){
-        EditText editEmail = findViewById(R.id.emailAddress);
+        EditText editEmail = findViewById(R.id.RegisterEmailAddress);
         String email = editEmail.getText().toString();
 
         if(email.isEmpty())
@@ -108,9 +112,9 @@ public class Register_phase_1 extends AppCompatActivity {
     }
 
     public void checkValidPassword(){
-        EditText passEdit = findViewById(R.id.password);
+        EditText passEdit = findViewById(R.id.RegisterPassword);
         String password = passEdit.getText().toString().trim();
-        EditText passCEdit = findViewById(R.id.passwordC);
+        EditText passCEdit = findViewById(R.id.RegisterConfirmPassword);
         String passwordC = passCEdit.getText().toString().trim();
 
         if(password.isEmpty()){
