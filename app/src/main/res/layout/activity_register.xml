@@ -295,6 +295,21 @@
                 android:textStyle="bold" />
 
             <EditText
+                android:id="@+id/RegisterName"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_margin="32dp"
+                android:background="@drawable/custom_input"
+                android:drawablePadding="12dp"
+                android:ems="10"
+                android:hint="Name"
+                android:inputType="text"
+                android:paddingStart="12dp"
+                android:paddingEnd="12dp"
+                android:textColorHint="#757575"
+                android:textSize="16sp" />
+
+            <EditText
                 android:id="@+id/RegisterEmailAddress"
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
@@ -355,9 +370,8 @@
                 android:id="@+id/RegisterBack"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="40dp"
                 android:layout_marginHorizontal="32dp"
-                android:gravity="center"
+                android:layout_marginBottom="40dp"
                 android:minHeight="48dp"
                 android:onClick="RegisterBack"
                 android:text="Return"

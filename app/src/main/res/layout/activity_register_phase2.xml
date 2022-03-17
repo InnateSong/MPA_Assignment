@@ -6,29 +6,16 @@
     android:layout_height="match_parent"
     tools:context=".Register_phase_2">
 
-    <ImageView
-        android:layout_width="76dp"
-        android:layout_height="64dp"
-        android:layout_marginTop="288dp"
-        android:src="@drawable/icon_waves"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"></ImageView>
-
     <TextView
         android:id="@+id/textView2"
-        android:layout_width="286dp"
-        android:layout_height="82dp"
-        android:layout_marginStart="176dp"
-        android:layout_marginTop="172dp"
-        android:layout_marginEnd="177dp"
-        android:text="Please wait a moment while we craft the appropiate tools... (Loading animation)"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="244dp"
+        android:text="Loading animation with some cringe text"
         android:textAlignment="center"
-        android:textSize="20sp"
+        android:textSize="16sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

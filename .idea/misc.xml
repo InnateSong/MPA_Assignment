@@ -15,14 +15,18 @@
         <entry key="..\:/Users/David/Desktop/MPA_assignment/app/src/main/res/drawable/ic_baseline_lock_24.xml" value="0.299" />
         <entry key="..\:/Users/David/Desktop/MPA_assignment/app/src/main/res/drawable/ic_baseline_lock_24_focused.xml" value="0.299" />
         <entry key="..\:/Users/David/Desktop/MPA_assignment/app/src/main/res/drawable/ic_launcher_background.xml" value="0.299" />
+        <entry key="..\:/Users/David/Desktop/MPA_assignment/app/src/main/res/drawable/icon_email.xml" value="0.299" />
         <entry key="..\:/Users/David/Desktop/MPA_assignment/app/src/main/res/drawable/icon_lock_focused.xml" value="0.141" />
         <entry key="..\:/Users/David/Desktop/MPA_assignment/app/src/main/res/drawable/icon_menubook.xml" value="0.299" />
+        <entry key="..\:/Users/David/Desktop/MPA_assignment/app/src/main/res/drawable/icon_text.xml" value="0.299" />
         <entry key="..\:/Users/David/Desktop/MPA_assignment/app/src/main/res/layout/activity_launch_sequence.xml" value="0.36102564102564105" />
         <entry key="..\:/Users/David/Desktop/MPA_assignment/app/src/main/res/layout/activity_login.xml" value="0.25" />
         <entry key="..\:/Users/David/Desktop/MPA_assignment/app/src/main/res/layout/activity_main.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/David/Desktop/MPA_assignment/app/src/main/res/layout/activity_main_screen.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/David/Desktop/MPA_assignment/app/src/main/res/layout/activity_product_populating.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/David/Desktop/MPA_assignment/app/src/main/res/layout/activity_register.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/David/Desktop/MPA_assignment/app/src/main/res/layout/activity_register_phase2.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/David/Desktop/MPA_assignment/app/src/main/res/layout/fragment__populate_table.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/David/Desktop/MPA_assignment/app/src/main/res/layout/fragment_home.xml" value="0.33" />
         <entry key="..\:/Users/David/Desktop/MPA_assignment/app/src/main/res/layout/nav_header.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/David/Desktop/MPA_assignment/app/src/main/res/menu/drawer_menu.xml" value="0.36666666666666664" />

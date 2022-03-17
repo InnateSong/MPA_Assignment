@@ -1,5 +1,6 @@
 package com.example.mpa_assignment;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -9,8 +10,15 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 
 public class Register_phase_1 extends AppCompatActivity {
@@ -55,9 +63,44 @@ public class Register_phase_1 extends AppCompatActivity {
         EditText passEdit = findViewById(R.id.RegisterPassword);
         pass = passEdit.getText().toString().trim();
 
+        // USERNAME
+        EditText userNameEdit = findViewById(R.id.RegisterName);
+        String userName = userNameEdit.getText().toString().trim();
+
         // Connect to the DB and populate it
-        mAuth.createUserWithEmailAndPassword(emailAd, pass);
-        // CHECK IF USER ALREADY EXISTS
+        mAuth.createUserWithEmailAndPassword(emailAd, pass).addOnCompleteListener(new OnCompleteListener<AuthResult>(){
+            @Override
+            public void onComplete(@NonNull Task<AuthResult> task) {
+                if (!task.isSuccessful()) {
+                    Toast.makeText(getApplicationContext(), "Authentication failed: " + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                else{
+                    // Create User Object
+                    UserObject user = new UserObject(emailAd, userName);
+
+                    // User from Firebase
+                    FirebaseUser Firebaseuser = mAuth.getCurrentUser();
+
+                    // User reference from database for "User Accounts"
+                    DatabaseReference UserReference = FirebaseDatabase.getInstance().getReference("UserAccounts");
+
+                    // Adding values to the database under "User Accounts" reference
+                    UserReference.child(Firebaseuser.getUid()).setValue(user).addOnCompleteListener(new OnCompleteListener<Void>() {
+                        @Override
+                        public void onComplete(@NonNull Task<Void> task) {
+                            if(task.isSuccessful()){
+                                Toast.makeText(getApplicationContext(), "User Registered", Toast.LENGTH_SHORT).show();
+                            }
+                            else{
+                                // :C
+                            }
+                        }
+
+                    });
+                }
+            }
+        });
 
         // Call next activity
         Intent intent = new Intent(this, Register_phase_2.class);

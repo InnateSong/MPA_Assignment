@@ -1,33 +1,34 @@
 {
   "project_info": {
-    "project_number": "434566867688",
-    "project_id": "mpa-assignment",
-    "storage_bucket": "mpa-assignment.appspot.com"
+    "project_number": "1080996717426",
+    "firebase_url": "https://pleasework-a6199-default-rtdb.firebaseio.com",
+    "project_id": "pleasework-a6199",
+    "storage_bucket": "pleasework-a6199.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:434566867688:android:4da8f799497259c681375d",
+        "mobilesdk_app_id": "1:1080996717426:android:5b1c45f9031e02e676b3eb",
         "android_client_info": {
           "package_name": "com.example.mpa_assignment"
         }
       },
       "oauth_client": [
         {
-          "client_id": "434566867688-5i7rle1ueir1fsbqm1o9ruikvr7f58o1.apps.googleusercontent.com",
+          "client_id": "1080996717426-7ckse4tghputhh0r8uhi7gcfk7qkvn51.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyADgWLkRwbD5QZdHmdnWiKjpWQx2WvpcA0"
+          "current_key": "AIzaSyB74dHqC2ioUM-TBxKYtasEwZgjIyVz7NM"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "434566867688-5i7rle1ueir1fsbqm1o9ruikvr7f58o1.apps.googleusercontent.com",
+              "client_id": "1080996717426-7ckse4tghputhh0r8uhi7gcfk7qkvn51.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

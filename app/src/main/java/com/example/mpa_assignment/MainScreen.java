@@ -3,6 +3,7 @@ package com.example.mpa_assignment;
 import android.content.Intent;
 import android.os.Bundle;
 // Imports: Android
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
@@ -14,17 +15,26 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
+
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.android.material.navigation.NavigationView;
 // Imports: Firebase
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 public class MainScreen extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
     // Variables
     private DrawerLayout drawer;
     private FirebaseUser mAuth;
+    private DatabaseReference mDatabase;
+
     String EmailString;
-    TextView emailHere;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,23 +45,47 @@ public class MainScreen extends AppCompatActivity implements NavigationView.OnNa
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        // Grabbing the email from the Firebase  Auth db
+        // Grabbing the email from the Firebase Auth db
         mAuth = FirebaseAuth.getInstance().getCurrentUser();
         EmailString = mAuth.getEmail();
 
         // Drawer View instantiated
         drawer = findViewById(R.id.drawer_layout);
 
-        // Navigation View instantiated (Allows for the menu button to open the drawer)
+        // 1. START: Navigation View instantiated (Allows for the menu button to open the drawer)
         NavigationView navigationView = findViewById(R.id.nav_view);
-        //      Setting the navigation text view to the current logged in users details
+        // 2.START Setting the navigation text view to the current logged in users details
         View headerView = navigationView.getHeaderView(0);
-        TextView navUsername = (TextView) headerView.findViewById(R.id.UserEmailFirebase);
-        navUsername.setText(EmailString);
+
+        // reference to the db
+        mDatabase = FirebaseDatabase.getInstance().getReference();
+        // reference to the children
+        DatabaseReference mPostReference = mDatabase.child("UserAccounts").child(FirebaseAuth.getInstance().getUid());
+        // event listener for event on change
+        mPostReference.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                // snapchat stored as object
+                UserObject user = dataSnapshot.getValue(UserObject.class);
+                // find the header text views
+                TextView navEmail = (TextView) headerView.findViewById(R.id.UserEmailFirebase);
+                TextView navUsername = headerView.findViewById(R.id.UserNameFirebase);
+                // set the values to the text edits
+                navUsername.setText(user.getUsername());
+                navEmail.setText(user.getEmail());
+            }
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+                // Getting Post failed, log a message
+                Log.w("Firebase:", "loadPost:onCancelled", databaseError.toException());
+            }
+        });
+
+        // 2. END
         navigationView.setNavigationItemSelectedListener(this);
+        // 1. END
 
-
-        //
+        // Toggles stay in place
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.addDrawerListener(toggle);
         toggle.syncState();
@@ -65,10 +99,12 @@ public class MainScreen extends AppCompatActivity implements NavigationView.OnNa
 
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
+        Toolbar toolbar = findViewById(R.id.toolbar);
         // For every option selected on the navigation, a fragment replaces the current fragment in place
         switch (menuItem.getItemId()) {
             case R.id.home:
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new Fragment_Home()).commit();
+                toolbar.setTitle("Home");
                 break;
             case R.id.SignOut:
                 FirebaseAuth.getInstance().signOut();
