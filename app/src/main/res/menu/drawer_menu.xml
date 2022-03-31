@@ -14,9 +14,9 @@
             android:title="Profile" />
 
         <item
-            android:id="@+id/advancedView"
-            android:icon="@drawable/icon_profile"
-            android:title="Advanced View" />
+            android:id="@+id/setAlarm"
+            android:icon="@drawable/ic_baseline_access_alarm_24"
+            android:title="Set Alarm" />
 
         <item
             android:id="@+id/settings"

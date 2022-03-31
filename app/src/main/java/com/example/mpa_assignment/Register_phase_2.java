@@ -16,6 +16,7 @@ public class Register_phase_2 extends AppCompatActivity {
 
         Intent intent = new Intent(this, MainScreen.class);
 
+        // Handler used to create a loading screen effect
         Handler handler = new Handler();
         handler.postDelayed(new Runnable() {
             public void run() {

@@ -21,6 +21,7 @@ public class MainActivity extends AppCompatActivity {
         // Checks if user is already logged in!
         checkCurrentUser();
 
+        // Handler created to sleep for 3 seconds (loading screen will be displayed)
         Handler handler = new Handler();
         handler.postDelayed(new Runnable() {
             public void run() {
@@ -31,7 +32,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     // CHECKS FOR ACTIVE USER
-    public void checkCurrentUser(){
+    public void checkCurrentUser() {
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         if (user != null) {
             Toast.makeText(getApplicationContext(), "User already signed in! Logging off now...", Toast.LENGTH_SHORT).show();

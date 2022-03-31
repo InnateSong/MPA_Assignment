@@ -15,7 +15,7 @@
         android:fillViewport="true"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0">
@@ -51,7 +51,7 @@
                 android:textStyle="bold" />
 
             <Button
-                android:id="@+id/button"
+                android:id="@+id/ProfileApplyChangesButton"
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
                 android:layout_marginStart="100dp"
@@ -61,6 +61,7 @@
                 android:text="Add product" />
 
             <TableLayout
+                android:id="@+id/ProductTable"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginHorizontal="32dp"
@@ -102,6 +103,13 @@
                         android:padding="20dip"
                         android:text="Calories"
                         android:textColor="#000000" />
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="#cac9c9"
+                        android:padding="20dip" />
+
                 </TableRow>
 
             </TableLayout>

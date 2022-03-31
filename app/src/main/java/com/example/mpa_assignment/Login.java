@@ -20,6 +20,7 @@ import com.google.firebase.auth.FirebaseUser;
 
 public class Login extends AppCompatActivity {
 
+    // Variables
     private String emailAd, pass;
     private FirebaseAuth mAuth;
     private static final String TAG = "MyActivity";
@@ -32,64 +33,77 @@ public class Login extends AppCompatActivity {
 
     }
 
-    public void LoginSubmitButton(View view){
-
+    public void LoginSubmitButton(View view) {
+        // References
         EditText editEmail = findViewById(R.id.LoginEmailAddress);
         EditText editPass = findViewById(R.id.LoginPassword);
 
-        // EMAIL
-        checkEmptyEmail(editEmail);
+        if ((checkEmptyEmail(editEmail) || checkEmptyPassword(editPass)) == false) {
+            // Connect to the DB and Login
+            mAuth.signInWithEmailAndPassword(editEmail.getText().toString(), editPass.getText().toString())
+                    .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+                        @Override
+                        public void onComplete(@NonNull Task<AuthResult> task) {
+                            if (task.isSuccessful()) {
+                                // Sign in success, update UI with the signed-in user's information
+                                Log.d(TAG, "signInWithEmail:success");
+                                FirebaseUser user = mAuth.getCurrentUser();
+                                // Call next activity
+                                Intent intent = new Intent(Login.this, MainScreen.class);
+                                startActivity(intent);
 
-        // PASSWORD
-        checkEmptyPassword(editPass);
-
-        // Connect to the DB and Login
-        mAuth.signInWithEmailAndPassword(editEmail.getText().toString(), editPass.getText().toString())
-
-                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
-                    @Override
-                    public void onComplete(@NonNull Task<AuthResult> task) {
-                        if (task.isSuccessful()) {
-                            // Sign in success, update UI with the signed-in user's information
-                            Log.d(TAG, "signInWithEmail:success");
-                            FirebaseUser user = mAuth.getCurrentUser();
-                            // Call next activity
-                            Intent intent = new Intent(Login.this, MainScreen.class);
-                            startActivity(intent);
-
-                        } else {
-                            // If sign in fails, display a message to the user.
-                            Log.w(TAG, "signInWithEmail:failure", task.getException());
-                            Toast.makeText(Login.this, "Authentication failed.",
-                                    Toast.LENGTH_SHORT).show();
+                            } else {
+                                // If sign in fails, display a message to the user.
+                                Log.w(TAG, "signInWithEmail:failure", task.getException());
+                                Toast.makeText(Login.this, "Authentication failed.",
+                                        Toast.LENGTH_SHORT).show();
+                            }
                         }
-                    }
-                });
+                    });
+        } else return;
     }
 
-    public void checkEmptyEmail(EditText editEmail){
+    // Password Reset Feature
+    public void ForgotPasswordButton(View view){
+        // References
+        EditText editEmail = findViewById(R.id.LoginEmailAddress);
+
+        if (checkEmptyEmail(editEmail) == false){
+            FirebaseAuth auth = FirebaseAuth.getInstance();
+            auth.sendPasswordResetEmail(emailAd = editEmail.getText().toString())
+                    .addOnCompleteListener(new OnCompleteListener<Void>() {
+                        @Override
+                        public void onComplete(@NonNull Task<Void> task) {
+                            if (task.isSuccessful()) {
+                                Log.d(TAG, "Email sent.");
+                            }
+                        }
+                    });
+        }
+    }
+
+    public boolean checkEmptyEmail(EditText editEmail) {
         String email = editEmail.getText().toString();
 
-        if(email.isEmpty())
-        {
+        if (email.isEmpty()) {
             editEmail.setError("Email is empty");
             editEmail.requestFocus();
-            return;
-        }
+            return true;
+        } else return false;
     }
 
-    public void checkEmptyPassword(EditText passEdit){
+    public boolean checkEmptyPassword(EditText passEdit) {
         String password = passEdit.getText().toString().trim();
 
-        if(password.isEmpty()){
-            passEdit.setError("Password is Empty!"); passEdit.requestFocus();
-            return;
-        }
+        if (password.isEmpty()) {
+            passEdit.setError("Password is Empty!");
+            passEdit.requestFocus();
+            return true;
+        } else return false;
     }
 
-    public void LoginRegisterButton(View view){
+    public void LoginRegisterButton(View view) {
         Intent intent = new Intent(getApplicationContext(), Register_phase_1.class);
         startActivity(intent);
     }
-
 }
